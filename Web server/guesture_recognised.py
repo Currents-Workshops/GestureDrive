@@ -106,7 +106,18 @@ while True:
 
         # Check if the current gesture is different from the last recognized gesture
         if l1 is not None and l1 != last_gesture1:
-            send_gesture_request('Gesture 1')
+            if l1 == 1:
+                send_gesture_request('Put hand in the box 1')
+            elif l1 == 2:
+                send_gesture_request('Forward')
+            elif l1 == 3:
+                send_gesture_request('Backward')
+            elif l1 == 5:
+                send_gesture_request('Stop')
+            else:
+                send_gesture_request('Reposition 1')
+            
+            
             last_gesture1 = l1
 
     if contours2:
@@ -161,7 +172,17 @@ while True:
 
         # Check if the current gesture is different from the last recognized gesture
         if l2 is not None and l2 != last_gesture2:
-            send_gesture_request('Gesture 2')
+            if l2 == 1:
+                send_gesture_request('Put hand in the box 2')
+            elif l2 == 2:
+                send_gesture_request('Left')
+            elif l2 == 3:
+                send_gesture_request('Right')
+            elif l2 == 5:
+                send_gesture_request('Stop')
+            else:
+                send_gesture_request('Reposition 2')
+
             last_gesture2 = l2
 
     cv2.imshow('frame', frame)
