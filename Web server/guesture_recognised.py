@@ -71,7 +71,7 @@ while cap.isOpened():
 
     if gesture != last_gesture:
         last_gesture = gesture
-        data = {"gesture": gesture}
+        data = {"command": gesture}
         try:
             response = requests.post(post_url, json=data)
             if response.status_code == 200:
@@ -98,3 +98,4 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
