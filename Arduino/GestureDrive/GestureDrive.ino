@@ -26,12 +26,12 @@ pinMode(echoPin, INPUT);
 
 myservo.attach(ServoPin); //Attach servo pin to servo object
 
-Serial.begin(9600); //Set baud rate for serial communication using USB
+//Serial.begin(9600); //Set baud rate for serial communication using USB
 bt.begin(9600); //Set baud rate for serial communication using Bluetooth Module
 
 }
 
-String t; //String to read input from bluetooth comm
+char t; //String to read input from bluetooth comm
 
 //Both motors move forward
 void forward()
@@ -63,7 +63,7 @@ digitalWrite(IN3,1);
 //Only right motor rotates
 void left()
 {
-  digitalWrite(IN1,0);
+digitalWrite(IN1,0);
 digitalWrite(IN2,1);
 digitalWrite(IN3,0);
 digitalWrite(IN4,0);
@@ -85,19 +85,18 @@ void loop() {
 //Read if data is available
 if(bt.available())
 {
-  t = bt.readString();
-  Serial.println(t);
-  if(t == "Front")
+  t = bt.read();
+  if(t == 'F')
   forward();
-  else if(t == "Back")
+  else if(t == 'B')
   reverse();
-  else if(t == "Left")
+  else if(t == 'L')
   left();
-  else if(t == "Right")
+  else if(t == 'R')
   right();
-  else if(t == "Stop")
+  else if(t == 'S')
   brake();
-  else if(t == "Scan")
+  else if(t == 'N')
   {
     char Data[800];
     for(int i =0 ; i < 800 ; i++) Data[i] = ' ';
@@ -115,6 +114,7 @@ if(bt.available())
     }
     Data[799] = '\0';
     bt.print(Data);
+//    Serial.println(Data);
     myservo.write(0);
     delay(1000);
   }
