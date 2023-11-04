@@ -57,7 +57,7 @@ while cap.isOpened():
             mp_drawing.draw_landmarks(frame, landmarks, mp_hands.HAND_CONNECTIONS)
 
             if num_fingers == 0:
-                gesture = "None"
+                gesture = "none"
             elif num_fingers == 1:
                 gesture = "Forward"
             elif num_fingers == 2:
@@ -67,7 +67,7 @@ while cap.isOpened():
             elif num_fingers == 4:
                 gesture = "Left"
             elif num_fingers == 5:
-                gesture = "stop"
+                gesture = "Stop"
 
     if gesture != last_gesture:
         last_gesture = gesture
