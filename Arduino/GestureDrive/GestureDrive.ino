@@ -26,7 +26,7 @@ pinMode(echoPin, INPUT);
 
 myservo.attach(ServoPin); //Attach servo pin to servo object
 
-//Serial.begin(9600); //Set baud rate for serial communication using USB
+Serial.begin(9600); //Set baud rate for serial communication using USB
 bt.begin(9600); //Set baud rate for serial communication using Bluetooth Module
 
 }
@@ -85,7 +85,8 @@ void loop() {
 //Read if data is available
 if(bt.available())
 {
-  t = bt.read();
+  t = bt.readString()[0];
+  Serial.println(t);
   if(t == 'F')
   forward();
   else if(t == 'B')
@@ -98,13 +99,14 @@ if(bt.available())
   brake();
   else if(t == 'N')
   {
+    brake();
     char Data[800];
     for(int i =0 ; i < 800 ; i++) Data[i] = ' ';
     int index = 0;
     for (int i = 0; i <= 180; i++) {
       
       myservo.write(i);  // Set the servo angle
-      delay(15);  // Delay for smooth motion
+      delay(50);  // Delay for smooth motion
       String data = String(readUltrasonicSensor())+" ";
       for(int j = 0 ; j < data.length() ;j++)
       {
