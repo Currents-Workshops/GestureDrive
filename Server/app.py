@@ -10,7 +10,9 @@ command to start server-> waitress-serve --listen=127.0.0.1:5000 app:app
 
 import serial
 from flask import Flask, request, jsonify
+from flask_cors import CORS 
 app = Flask(__name__)
+CORS(app)
 
 # init bluetooth connection with bot
 def initialize():
@@ -28,8 +30,8 @@ app.before_request_funcs = [(None, initialize())]
 def post_endpoint():
     data = request.get_json()
     # command Scan is used to fetch radar data
-    if data['command'] == 'Scan':
-        app.serialPort.write(bytes('Scan'.encode('utf-8')))
+    if data['command'] == 'N':
+        app.serialPort.write(bytes('N'.encode('utf-8')))
         while True:
             sensorData = app.serialPort.readline(800)
             if sensorData:
@@ -42,4 +44,4 @@ def post_endpoint():
         return jsonify({}) 
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
