@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding:0;
+    background-image: linear-gradient(to right, #023323, #07a343);
+    background-color:rgba(1, 20, 8, 0.6);
+    color: white;
+    font-size: large;
+}
+.homePage{
+    max-width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, #023323, #07a343);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 50%;
+    background: rgba(5, 0, 0, 0.15);
+    background-image: linear-gradient(to right, #023323, #07a343);
+}
+h1{
+    font-size: 2rem;
+    background-color: transparent;
+}
+.info{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background-color: transparent;
+}
+
+
+#goTo{
+    
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    line-height: 0;
+    box-shadow: none;
+    background-color: #025c15;
+}
+
+.dataUpdate{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(5, 0, 5);
+    height: 3rem;
+}
+
+button{
+    background-color: rgba(41, 230, 110, 0.3);
+    padding: 5px;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 5px 5px rgba(4, 206, 78, 0.7);
+    height: 2rem;
+
+}
+
+button:active {
+    box-shadow: 2px 3px rgb(92, 253, 127);
+    transform: translateY(4px);
+  }
+.timeUpdate,strong{
+    background-color: #030002;
+    height: 1rem;
+}
+
+
