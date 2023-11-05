@@ -89,7 +89,7 @@ function DataPage() {
       // Enable the buttons after 5 seconds
       setTimeout(() => {
         setButtonDisabled(false);
-      }, 5000);
+      }, 2000);
     };
 
   return (
